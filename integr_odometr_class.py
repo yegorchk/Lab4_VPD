@@ -1,6 +1,7 @@
 #I/usr/bin/env python3
 import time
 import math
+import infos
 
 class Integrator:
     def __init__(self, x0, T): #x0 - начальные условия, T - постояный шаг интегрирования
