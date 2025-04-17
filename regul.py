@@ -1,8 +1,7 @@
 #I/usr/bin/env python3
 import time
 import math
-import infos
-import lab_4_classes
+from infos import *
 
 def get_error(x_g, y_g, x, y, theta):
     ex = (x_g - x); ey = (y_g - y)
@@ -25,10 +24,6 @@ def saturation(u, u_max = 100):
     return u
 
 if __name__ == "__main__":
-    Kr = 1 #подбираем первым(угол поворота)
-    Ks = 0 #подбираем вторым
-    x_goal = 1; y_goal = 1
-
     rho, alpha = get_error(x_goal, y_goal, 0, 0, 0)
     print(rho, alpha)
     v_goal, w_goal = calc_control(rho, alpha)

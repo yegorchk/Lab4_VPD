@@ -1,4 +1,5 @@
 import math
+from infos import *
 class Integrator:
     def __init__(self, x0, T):
         self.x0 = 0
