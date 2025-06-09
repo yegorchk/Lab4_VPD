@@ -22,6 +22,14 @@ def saturation(u, u_max = 100):
     if u<=-u_max:
         return -u_max
     return u
+def func(a):
+    if (a <= math.pi):
+         return a + 2*math.pi
+    elif (a <= math.pi):
+         return a - 2*math.pi
+    else:
+        return a
+
 
 if __name__ == "__main__":
     rho, alpha = get_error(x_goal, y_goal, 0, 0, 0)
