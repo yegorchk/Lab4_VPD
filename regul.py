@@ -14,6 +14,9 @@ def get_error(x_g, y_g, x, y, theta):
 def calc_control(rho, alpha):
     v_goal = Ks * rho
     w_goal = Kr * alpha
+    # v_goal = Ks * rho * math.cos(alpha)
+    # w_goal = Ks * alpha * math.cos(alpha) * math.sin(alpha) + Kr * alpha
+
     return(v_goal, w_goal)
 
 def saturation(u, u_max = 100):

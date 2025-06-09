@@ -15,7 +15,7 @@ startTime = time.time()
 prevPos_l = motor_l.position
 prevPos_r = motor_r.position
 odometry = odo.Odometry(r=wheel_radius, B=base, T=T)
-filename="py_coord.txt"
+filename="py_coord_one_direction.txt"
 f = open(filename, "w")
 try:
     while (True):
@@ -41,16 +41,16 @@ try:
         x_c, y_c, _ = odometry.update(w_l,w_r)
         print(alpha, x_c, y_c)
         f.write(str(x_c) + " " + str (y_c) +  "\n")
-        if rho < 0.3:
-            k+=1
-            x_goal=x_goal*(-1)**(k+1)
-            y_goal=y_goal*(-1)**(k)
-            #motor_r.run_direct(duty_cycle_sp = 0)
-            #motor_r.stop(stop_action = 'brake')
+        if rho < 0.2:
+            # k+=1
+            # x_goal=x_goal*(-1)**(k+1)
+            # y_goal=y_goal*(-1)**(k)
+            motor_r.run_direct(duty_cycle_sp = 0)
+            motor_r.stop(stop_action = 'brake')
 
-            #motor_l.run_direct(duty_cycle_sp = 0)
-            #motor_l.stop(stop_action = 'brake')
-            #break
+            motor_l.run_direct(duty_cycle_sp = 0)
+            motor_l.stop(stop_action = 'brake')
+            break
             
         
         dt = T - (time.time() - t1)
